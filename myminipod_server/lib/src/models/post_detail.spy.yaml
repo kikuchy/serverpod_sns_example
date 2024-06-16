@@ -1,0 +1,7 @@
+class: PostDetail
+fields:
+    id: UuidValue
+    headline: String
+    content: String
+    isLiked: bool
+    creaedAt: DateTime

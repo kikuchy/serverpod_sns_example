@@ -1,0 +1,6 @@
+class: PostDigest
+fields:
+  id: UuidValue
+  headline: String
+  isLiked: bool
+  creaedAt: DateTime
