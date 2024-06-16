@@ -1,5 +1,6 @@
 import 'package:myminipod_client/myminipod_client.dart';
 import 'package:myminipod_flutter/data/client.dart';
+import 'package:myminipod_flutter/data/get_like.dart';
 import 'package:myminipod_flutter/notifier/posts_list.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -9,7 +10,7 @@ part 'like.g.dart';
 class LikeNotifier extends _$LikeNotifier {
   @override
   Future<bool> build(UuidValue postId) async {
-    return ref.read(clientProvider).posts.getLike(postId);
+    return ref.read(getLikeProvider)(postId);
   }
 
   Future<void> toggleLike() async {

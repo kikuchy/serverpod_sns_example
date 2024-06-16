@@ -14,8 +14,16 @@ class PostsEndpoint extends Endpoint {
     return post;
   }
 
-  Future<bool> getLike(Session session, UuidValue postId) async {
-    return PostRepository().getLike(postId);
+  Future<Map<UuidValue, bool>> getLikes(Session session, List<UuidValue> postIds) async {
+    final results = await Future.wait([
+      for (var postId in postIds)
+        PostRepository().getLike(postId)
+    ]);
+
+    return {
+      for (var i = 0; i < postIds.length; i++)
+        postIds[i]: results[i],
+    };
   }
 
   Future<bool> toggleLike(Session session, UuidValue postId) async {

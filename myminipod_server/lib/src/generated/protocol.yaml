@@ -1,5 +1,5 @@
 posts:
   - getPosts:
   - getPost:
-  - getLike:
+  - getLikes:
   - toggleLike:

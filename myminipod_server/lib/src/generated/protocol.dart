@@ -14,6 +14,7 @@ import 'package:serverpod/protocol.dart' as _i2;
 import 'post_detail.dart' as _i3;
 import 'post_digest.dart' as _i4;
 import 'package:myminipod_server/src/generated/post_digest.dart' as _i5;
+import 'package:uuid/uuid_value.dart' as _i6;
 export 'post_detail.dart';
 export 'post_digest.dart';
 
@@ -48,6 +49,15 @@ class Protocol extends _i1.SerializationManagerServer {
     }
     if (t == List<_i5.PostDigest>) {
       return (data as List).map((e) => deserialize<_i5.PostDigest>(e)).toList()
+          as dynamic;
+    }
+    if (t == Map<_i6.UuidValue, bool>) {
+      return Map.fromEntries((data as List).map((e) => MapEntry(
+              deserialize<_i6.UuidValue>(e['k']), deserialize<bool>(e['v']))))
+          as dynamic;
+    }
+    if (t == List<_i6.UuidValue>) {
+      return (data as List).map((e) => deserialize<_i6.UuidValue>(e)).toList()
           as dynamic;
     }
     try {

@@ -36,11 +36,11 @@ class EndpointPosts extends _i1.EndpointRef {
         {'postId': postId},
       );
 
-  _i2.Future<bool> getLike(_i5.UuidValue postId) =>
-      caller.callServerEndpoint<bool>(
+  _i2.Future<Map<_i5.UuidValue, bool>> getLikes(List<_i5.UuidValue> postIds) =>
+      caller.callServerEndpoint<Map<_i5.UuidValue, bool>>(
         'posts',
-        'getLike',
-        {'postId': postId},
+        'getLikes',
+        {'postIds': postIds},
       );
 
   _i2.Future<bool> toggleLike(_i5.UuidValue postId) =>

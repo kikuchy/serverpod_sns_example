@@ -54,12 +54,12 @@ class Endpoints extends _i1.EndpointDispatch {
             params['postId'],
           ),
         ),
-        'getLike': _i1.MethodConnector(
-          name: 'getLike',
+        'getLikes': _i1.MethodConnector(
+          name: 'getLikes',
           params: {
-            'postId': _i1.ParameterDescription(
-              name: 'postId',
-              type: _i1.getType<_i3.UuidValue>(),
+            'postIds': _i1.ParameterDescription(
+              name: 'postIds',
+              type: _i1.getType<List<_i3.UuidValue>>(),
               nullable: false,
             )
           },
@@ -67,9 +67,9 @@ class Endpoints extends _i1.EndpointDispatch {
             _i1.Session session,
             Map<String, dynamic> params,
           ) async =>
-              (endpoints['posts'] as _i2.PostsEndpoint).getLike(
+              (endpoints['posts'] as _i2.PostsEndpoint).getLikes(
             session,
-            params['postId'],
+            params['postIds'],
           ),
         ),
         'toggleLike': _i1.MethodConnector(
